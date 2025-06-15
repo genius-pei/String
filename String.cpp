@@ -83,6 +83,11 @@ void test02()
 	}
 	reverse(s1.begin(), s1.end());
 	cout << s1 << endl;
+	for (auto e : s1)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
 }
 int main()
 {
