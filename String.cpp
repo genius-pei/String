@@ -89,9 +89,79 @@ void test02()
 	}
 	cout << endl;
 }
+void test03()
+{
+	string s1;
+	string s2;
+	s1.reserve(100);
+	cout << "size:" << s1.size() << endl;
+	cout << "capacity:" << s1.capacity() << endl;
+	s2.resize(10,'a');
+	cout << s2 << endl;
+	cout << "size:" << s2.size() << endl;
+	cout << "capacity:" << s2.capacity() << endl;
+}
+void test04()
+{
+	string s1("123456");
+	s1[0]++;
+	cout << s1 << endl;
+}
+void test05()
+{
+	string s1("hello world");
+	s1.push_back('a');
+	s1.append("hello nit");
+	s1.append(10, 'a');
+	cout << s1 << endl;
+}
+void test06()
+{
+	string s1;
+	s1.assign(10, 'y');
+	s1.insert(2, "hello world");
+	cout << s1 << endl;
+	s1.erase(5);
+	cout << s1 << endl;
+	string s2("hello world");
+	s2.replace(5,3,"#123");
+	cout << s2 << endl;
+	
+	
+
+	string s3("hello you and me");
+	//size_t pos = s3.find(' ');
+	//while (pos != string::npos)
+	//{
+	//	s3.replace(pos, 1, "%%");
+	//	pos = s3.find(' ');
+	//}
+	//cout << s3 << endl;
+	string s4;
+	for (auto ch : s3)
+	{
+		if (ch == ' ')
+		s4 += "%%";
+		else
+			s4 += ch;
+	}
+	cout << s4 << endl;
+}
 int main()
 {
 	//test01();
-	test02();
+	//test02();
+	//test03();
+	//try
+	//{
+	//	test04();
+	//}
+	//catch (const exception& e)
+	//{
+	//	cout << e.what() << endl;
+	//}
+	//test05();
+
+	test06();
 	return 0;
 }
