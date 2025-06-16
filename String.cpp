@@ -163,11 +163,30 @@ void test07()
 		ch = fgetc(fout);
 	}
 }
+string findsuffix(const string& filename)
+{
+	size_t i = filename.find('.');
+	if (i != string::npos)
+	{
+		return filename.substr(i);
+	}
+	else
+	{
+		return " ";
+	}
+}
 void test08()
 {
 	string filename("String.cpp");
 	string str1 = filename.substr(4, filename.size() - 4);
 	cout << str1 << endl;
+}
+
+void test09()
+{
+	string filename("Stri.ng.cpp");
+	string s1 = findsuffix(filename);
+	cout << s1 << endl;
 }
 int main()
 {
@@ -186,6 +205,7 @@ int main()
 
 	//test06();
 	//test07();
-	test08();
+	//test08();
+	test09();
 	return 0;
 }
