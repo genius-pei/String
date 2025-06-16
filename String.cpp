@@ -165,7 +165,7 @@ void test07()
 }
 string findsuffix(const string& filename)
 {
-	size_t i = filename.find('.');
+	size_t i = filename.rfind('.');
 	if (i != string::npos)
 	{
 		return filename.substr(i);
@@ -177,14 +177,14 @@ string findsuffix(const string& filename)
 }
 void test08()
 {
-	string filename("String.cpp");
+	string filename("Stri.ng.cpp");
 	string str1 = filename.substr(4, filename.size() - 4);
 	cout << str1 << endl;
 }
 
 void test09()
 {
-	string filename("Stri.ng.cpp");
+	string filename("String.cpp");
 	string s1 = findsuffix(filename);
 	cout << s1 << endl;
 }
