@@ -147,6 +147,28 @@ void test06()
 	}
 	cout << s4 << endl;
 }
+void test07()
+{
+	string filename("String.cpp");
+	FILE* fout = fopen(filename.c_str(), "r");
+	if (fout == nullptr)
+	{
+		cout << "fopen error" << endl;
+		return;
+	}
+	char ch = fgetc(fout);
+	while (ch != EOF)
+	{
+		cout << ch;
+		ch = fgetc(fout);
+	}
+}
+void test08()
+{
+	string filename("String.cpp");
+	string str1 = filename.substr(4, filename.size() - 4);
+	cout << str1 << endl;
+}
 int main()
 {
 	//test01();
@@ -162,6 +184,8 @@ int main()
 	//}
 	//test05();
 
-	test06();
+	//test06();
+	//test07();
+	test08();
 	return 0;
 }
