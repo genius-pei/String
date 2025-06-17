@@ -223,6 +223,15 @@ void test11()
 		found = str.find_first_not_of("go", found + 1);
 	}
 	cout << str << endl;
+	string s1("xxx");
+	string s2("xxx");
+	const char* st = "2233222";
+	if (s1 == s2)
+	{
+		cout << st << endl;
+	}
+	string s3 = s1 + st;
+	cout << s3 << endl;
 }
 int main()
 {
