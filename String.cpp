@@ -188,6 +188,42 @@ void test09()
 	string s1 = findsuffix(filename);
 	cout << s1 << endl;
 }
+vector<string> split_url(const string& url)
+{
+	vector<string> v;
+	size_t i1 = url.find(":");
+	if (i1 != string::npos)
+	{
+		v.push_back(url.substr(0, i1));
+	}
+	size_t i2 = i1 + 3;
+	size_t i3 = url.find("/", i2);
+	if (i3 != string::npos)
+	{
+		v.push_back(url.substr(i2, i3 - i2));
+		v.push_back(url.substr(i3 + 1));
+	}
+	return v;
+
+}
+void test10()
+{
+	string url1 = "https://github.com/genius-pei?tab=overview&from=2025-06-01&to=2025-06-16";
+	vector<string> s1=split_url(url1);
+
+		
+}
+void test11()
+{
+	string str("please,don't_go");
+	size_t found = str.find_first_not_of("go");
+	while (found != string::npos)
+	{
+		str[found] = '*';
+		found = str.find_first_not_of("go", found + 1);
+	}
+	cout << str << endl;
+}
 int main()
 {
 	//test01();
@@ -206,6 +242,8 @@ int main()
 	//test06();
 	//test07();
 	//test08();
-	test09();
+	//test09();
+	//test10();
+	test11();
 	return 0;
 }
