@@ -14,18 +14,22 @@ namespace yiming
 		string(const char* str=" ");
 		const char* c_str()const;
 		~string();
+		string(const string& s);
 		size_t size();
+		size_t size() const;
 		iterator begin();
 		iterator end();
 		const_iterator begin()const;
 		const_iterator end()const;
+		void push_back(char ch);
 		char& operator[](size_t i);
 		const char& operator[](size_t i)const;
-		void push_back(char ch);
 		void append(const char* str);
 		void reserve(size_t n);
 		string& operator+=(char ch);
 		string& operator+=(const char* str);
+		void insert(size_t pos,char ch);
+		void insert(size_t pos,const char* str);
 	private:
 		char* _str;
 		size_t _size;
