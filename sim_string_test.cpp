@@ -1,8 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"String.h"
-
-
-using namespace std;
 namespace yiming {
 
 	void test01()
@@ -12,8 +9,10 @@ namespace yiming {
 		cout << s1 << endl;
 
 	}
-	int main()
-	{
-
-	}
+	
+}
+int main()
+{
+	yiming::test01();
+	return 0;
 }
