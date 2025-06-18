@@ -31,10 +31,43 @@ namespace yiming
 	{
 		return _size;
 	}
-	char& string::operator[](size_t i)const
+	char& string::operator[](size_t i)
 	{
 		assert(i < _size);
 		return _str[i];
 	}
-		
+	const char& string::operator[](size_t i)const
+	{
+		assert(i < _size);
+		return _str[i];
+	}
+	string::iterator string::begin()
+	{
+		return _str;
+	}
+	string::iterator string::end()
+	{
+		return _str + _size;
+	}
+	void string::reserve(size_t n)
+	{
+		if (n > _capacity)
+		{
+			char* str = new char[n + 1];//Îª\0Ô¤Áô¿Õ¼ä
+			strcpy(str, _str);
+			delete[]_str;
+			_str = str;
+			_capacity = n;
+		}
+	}
+	void string::push_back(char ch)
+	{
+		if (_size > _capacity)
+		{
+			size_t newcapacity = _capacity == 0 ? 4 : 2 * _capacity;
+		}
+		_str[_size] = ch;
+		++_size;
+		_str[_size] = '\0';
+	}
 }
