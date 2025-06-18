@@ -2,6 +2,7 @@
 #include"String.h"
 namespace yiming
 {
+	const size_t string::npos = -1;
 	string::string()
 		:_str(new char[1]{'\0'})
 		, _size(0)
@@ -123,7 +124,7 @@ namespace yiming
 		}
 		return out;
 	}
-	void string::insert(size_t pos, char ch)
+	string&string::insert(size_t pos, char ch)
 	{
 		assert(pos <= _size);
 		if (_size >= _capacity)
@@ -140,8 +141,9 @@ namespace yiming
 		}
 		_str[pos] = ch;
 		++_size;
+		return *this;
 	}
-	void string::insert(size_t pos, const char* str)
+    string& string::insert(size_t pos, const char* str)
 	{
 		assert(pos <= _size);
 		size_t len = strlen(str);
@@ -161,5 +163,63 @@ namespace yiming
 			_str[pos + i] = str[i];
 		}
 		_size += len;
+		return *this;
 	}
+	
+	string& string::erase(size_t pos, size_t len)
+	{
+		assert(pos < _size);
+		if (len == npos || len>=(_size-npos))//全删
+		{
+			_size = pos;
+			_str[_size] = '\0';
+		}
+		else
+		{
+			size_t i = pos + len;
+			memmove(_str + pos, _str + i, _size + 1 - i);
+			_size -= len;
+		}
+		return *this;
+	}
+	size_t string::find(char ch, size_t pos = 0)const
+	{
+		for (size_t i = pos;i < _size;i++)
+		{
+			if (_str[i] = ch)
+			{
+				return i;
+			}
+			return npos;
+		}
+	}
+	size_t string::find(const char* str, size_t pos = 0)const
+	{
+		const char* p1 = strstr(_str + pos, str);//寻找相同的字符串
+		if (p1 ==nullptr)
+		{
+			return npos;
+		}
+		else
+		{
+			return p1 - _str;
+		}
+
+
+	}
+	string string::substr(size_t pos, size_t len = npos)
+	{
+		if (len == npos || len >= _size - pos)//比后续长度长
+		{
+			len = _size - pos;
+		}
+		string ret;
+		ret.reserve(len);
+		for (size_t i = 0;i < len;i++)
+		{
+			ret+
+		}
+
+	}
+
 }

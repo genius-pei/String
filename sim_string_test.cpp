@@ -12,11 +12,18 @@ namespace yiming {
 	void test02()
 	{
 		string s1("hello world");
-		s1.insert(5, 'm');
-		cout << s1 << endl;
+		string t1=s1.insert(5, 'm');
+		cout << t1 << endl;
 		string s2("hello world");
-		s2.insert(5, "my");
-		cout << s2 << endl;
+		string t2=s2.insert(5, "my");
+		cout << t2 << endl;
+		string t3=s2.erase(5, 3);
+		cout << t3 << endl;
+	}
+	void string::pop_back()
+	{
+		--_size;
+		_str[_size] = '\0';
 	}
 	
 }

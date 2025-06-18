@@ -22,18 +22,26 @@ namespace yiming
 		const_iterator begin()const;
 		const_iterator end()const;
 		void push_back(char ch);
+		void pop_back();
 		char& operator[](size_t i);
 		const char& operator[](size_t i)const;
 		void append(const char* str);
 		void reserve(size_t n);
 		string& operator+=(char ch);
 		string& operator+=(const char* str);
-		void insert(size_t pos,char ch);
-		void insert(size_t pos,const char* str);
+		string& insert(size_t pos,char ch);
+		string& insert(size_t pos,const char* str);
+		string& erase(size_t pos, size_t len = npos);
+		size_t find(char ch, size_t pos = 0)const;
+		size_t find(const char* str , size_t pos = 0)const;
+		string substr(size_t pos, size_t len = npos);
+	
 	private:
 		char* _str;
 		size_t _size;
 		size_t _capacity;
+	public:
+		static const size_t npos;
 	};
 	ostream& operator<<(ostream& out, const string& s);
 	
