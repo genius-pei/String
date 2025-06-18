@@ -2,6 +2,7 @@
 #include<iostream>
 #include<string.h>
 #include<assert.h>
+using namespace std;
 namespace yiming
 {
 	class string
@@ -23,12 +24,14 @@ namespace yiming
 		void push_back(char ch);
 		void append(const char* str);
 		void reserve(size_t n);
+		string& operator+=(char ch);
+		string& operator+=(const char* str);
 	private:
 		char* _str;
 		size_t _size;
 		size_t _capacity;
 	};
-
+	ostream& operator<<(ostream& out, const string& s);
 	
 
 }
