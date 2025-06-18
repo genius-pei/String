@@ -70,4 +70,32 @@ namespace yiming
 		++_size;
 		_str[_size] = '\0';
 	}
+
+	void string::append(const char* str)
+	{
+		size_t len = strlen(str);
+		if (_size + len > _capacity)
+		{
+			size_t newcapacity = 2*_capacity>_size+len?2*_capacity:_size+len;
+			reserve(newcapacity);
+		}
+		strcpy(_str + _size, str);
+		_size += len;
+	}
+	string& string::operator+=(char ch)
+	{
+		push_back(ch);
+		return *this;
+	}
+	string& string::operator+=(const char* str)
+	{
+		append(str);
+		return *this;
+	
+	}
+	ostream& operator<<(ostream& out, const string& s)
+	{
+		out << s.c_str();
+		return out;
+	}
 }
