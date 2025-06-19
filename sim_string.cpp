@@ -115,15 +115,7 @@ namespace yiming
 		return *this;
 	
 	}
-	ostream& operator<<(ostream& out, const string& s)
-	{
-		//out << s.c_str();
-		for (size_t i = 0;i < s.size();i++)
-		{
-			out << s[i];
-		}
-		return out;
-	}
+	
 	string&string::insert(size_t pos, char ch)
 	{
 		assert(pos <= _size);
@@ -276,7 +268,47 @@ namespace yiming
 	bool string::operator!=(const string& s)const
 	{
 		return !(*this == s);
+
 	}
-
-
+	ostream& operator<<(ostream& out, const string& s)
+	{
+		//out << s.c_str();
+		for (size_t i = 0;i < s.size();i++)
+		{
+			out << s[i];
+		}
+		return out;
+	}
+	istream& operator>>(istream& in, string& s)
+	{
+		s.clear();
+		char ch=in.get();
+		/*cin >> ch;*/
+		while (ch != ' ' && ch != '\n')
+		{
+			s += ch;
+		    /*in >> ch;*/
+			ch = in.get();
+		}
+		return in;
+	}
+	void string::clear()
+	{
+		_str[0] = '\0';
+		_size = 0;
+	}
+	istream& getline(istream& in, string& s, char delim )
+	{
+		s.clear();
+		char ch = in.get();
+		/*cin >> ch;*/
+		while (ch !=delim)
+		{
+			s += ch;
+			/*in >> ch;*/
+			ch = in.get();
+		}
+		return in;
+	}
+	
 }
