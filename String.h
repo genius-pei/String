@@ -11,7 +11,7 @@ namespace yiming
 		typedef char* iterator;
 		typedef const char* const_iterator;
 		string();
-		string(const char* str=" ");
+		string(const char* str);
 		const char* c_str()const;
 		~string();
 		string(const string& s);
@@ -34,7 +34,14 @@ namespace yiming
 		string& erase(size_t pos, size_t len = npos);
 		size_t find(char ch, size_t pos = 0)const;
 		size_t find(const char* str , size_t pos = 0)const;
-		string substr(size_t pos, size_t len = npos);
+		string substr(size_t pos, size_t len = npos)const;
+		bool operator<(const string& s)const;
+		bool operator<=(const string& s)const;
+		bool operator>(const string& s)const;
+		bool operator>=(const string& s)const;
+		bool operator==(const string& s)const;
+		bool operator!=(const string& s)const;
+	
 	
 	private:
 		char* _str;
