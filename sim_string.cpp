@@ -182,18 +182,18 @@ namespace yiming
 		}
 		return *this;
 	}
-	size_t string::find(char ch, size_t pos = 0)const
+	size_t string::find(char ch, size_t pos )const
 	{
 		for (size_t i = pos;i < _size;i++)
 		{
-			if (_str[i] = ch)
+			if (_str[i] == ch)
 			{
 				return i;
 			}
-			return npos;
 		}
+		return npos;
 	}
-	size_t string::find(const char* str, size_t pos = 0)const
+	size_t string::find(const char* str, size_t pos )const
 	{
 		const char* p1 = strstr(_str + pos, str);//寻找相同的字符串
 		if (p1 ==nullptr)
@@ -207,7 +207,7 @@ namespace yiming
 
 
 	}
-	string string::substr(size_t pos, size_t len = npos)
+	string string::substr(size_t pos, size_t len )const
 	{
 		if (len == npos || len >= _size - pos)//比后续长度长
 		{
@@ -217,9 +217,66 @@ namespace yiming
 		ret.reserve(len);
 		for (size_t i = 0;i < len;i++)
 		{
-			ret+
+			ret += _str[pos + i];
+		}   
+		return ret;
+	}
+	bool string::operator<(const string& s)const
+	{
+		size_t i1 = 0, i2 = 0;
+		while (i1 < _size && i2<s._size)
+		{
+			if (_str[i1] < s[i2])//这里比较按照ASCII码值
+			{
+				return true;
+			}
+			else if (_str[i1] > s[i2])
+			{
+				return false;
+			}
+			else
+			{
+				++i1;
+				++i2;
+			}
 		}
+		return i2 < s._size;
 
 	}
+	bool string::operator<=(const string& s)const
+	{
+		return *this < s || *this == s;
+	}
+	bool string::operator>(const string& s)const
+	{
+	return !( *this < s || *this == s);
+	}
+	bool string::operator>=(const string& s)const
+	{
+		return !(*this < s);
+	}
+	bool string::operator==(const string& s)const
+	{
+		size_t i1 = 0, i2 = 0;
+		while (i1 < _size && i2 < s._size)
+		{
+			if (_str[i1] != s[i2])//这里比较按照ASCII码值
+			{
+				return false;
+			}
+			else
+			{
+				++i1;
+				++i2;
+			}
+			
+		}
+		return i1==_size&&i1==s._size;
+	}
+	bool string::operator!=(const string& s)const
+	{
+		return !(*this == s);
+	}
+
 
 }
