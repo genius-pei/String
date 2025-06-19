@@ -25,12 +25,36 @@ namespace yiming {
 		--_size;
 		_str[_size] = '\0';
 	}
+	void split_url(const string& url)
+	{
+		size_t i1 = url.find(':');
+		if (i1 != string::npos)
+		{
+			cout << url.substr(0, i1) << endl;
+		}
+	}
+	void test03()
+	{
+		 string s1("https://en.cppreference.com/w/");
+		split_url(s1);
+	}
+	void test04()
+	{
+		string s1("hello"), s2("hello");
+		string s3("hellox"), s4("hello");
+		string s5("hello"), s6("hellox");
+		cout << (s1 < s2) << endl;
+		cout << (s3 < s4) << endl;
+		cout << (s5 < s6) << endl;
+	}
 	
 }
 int main()
 {
 	//yiming::test01();
-	yiming::test02();
+	//yiming::test02();
+	//yiming::test03();
+	yiming::test04();
 
 	return 0;
 }
