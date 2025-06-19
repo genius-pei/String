@@ -48,13 +48,23 @@ namespace yiming {
 		cout << (s5 < s6) << endl;
 	}
 	
+	void test05()
+	{
+		string s1;
+		/*string s2;
+		cin >> s1>>s2;
+		cout << s1 << s2<<endl;*/
+		getline(cin, s1);
+		cout << s1 << endl;
+	}
 }
 int main()
 {
 	//yiming::test01();
 	//yiming::test02();
 	//yiming::test03();
-	yiming::test04();
+	//yiming::test04();
+	yiming::test05();
 
 	return 0;
 }
