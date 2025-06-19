@@ -27,6 +27,7 @@ namespace yiming
 		const char& operator[](size_t i)const;
 		void append(const char* str);
 		void reserve(size_t n);
+		void clear();
 		string& operator+=(char ch);
 		string& operator+=(const char* str);
 		string& insert(size_t pos,char ch);
@@ -51,6 +52,8 @@ namespace yiming
 		static const size_t npos;
 	};
 	ostream& operator<<(ostream& out, const string& s);
+	istream& operator>>(istream& in, string& s);
+	istream& getline(istream& in,string& s,char delim='\n');
 	
 
 }
