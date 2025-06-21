@@ -65,7 +65,17 @@ namespace yiming {
 		s1.append("im fine");
 		cout << s1 << endl;
 		
-
+	}
+	void blog02()
+	{
+		string s1("how are you?");
+		size_t a1 = s1.find('a');
+		s1.insert(a1, "xyz");
+		cout << s1 << endl;
+		s1.erase(a1, 4);
+		cout << s1 << endl;
+		string s2=s1.substr(a1, 3);
+		cout << s2 << endl;
 	}
 }
 
@@ -76,7 +86,8 @@ int main()
 	//yiming::test03();
 	//yiming::test04();
 	//yiming::test05();
-	yiming::blog01();
+	//yiming::blog01();
+	yiming::blog02();
 
 	return 0;
 }
