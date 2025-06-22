@@ -81,13 +81,13 @@ namespace yiming {
 
 int main()
 {
-	//yiming::test01();
-	//yiming::test02();
-	//yiming::test03();
-	//yiming::test04();
-	//yiming::test05();
-	//yiming::blog01();
+	yiming::test01();
+	yiming::test02();
+	yiming::test03();
+	yiming::test04();
+	yiming::test05();
+	yiming::blog01();
 	yiming::blog02();
 
 	return 0;
-}
+} 
