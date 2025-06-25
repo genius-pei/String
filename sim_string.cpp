@@ -292,6 +292,19 @@ namespace yiming
 		}
 		return in;
 	}
+	string string::operator=(const string& s)
+	{
+		if (this != &s);
+		{
+			char* tmp = new char[s._capacity + 1];
+			memcpy(tmp, s._str, s._size + 1);
+			delete[]_str;
+			_str = tmp;
+			_size = s._size;
+			_capacity = s._capacity;
+		}
+		return *this;
+	}
 	void string::clear()
 	{
 		_str[0] = '\0';
