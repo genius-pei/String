@@ -57,6 +57,13 @@ namespace yiming {
 		getline(cin, s1);
 		cout << s1 << endl;
 	}
+	void test06()
+	{
+		string s1("hello");
+		string s2;
+		s2 = s1;
+		cout << s2 << endl;
+	}
 	void blog01()
 	{
 		string s1("hello yiming");
@@ -86,8 +93,9 @@ int main()
 	//yiming::test03();
 	//yiming::test04();
 	//yiming::test05();
-	yiming::blog01();
-	yiming::blog02();
+	//yiming::blog01();
+	//yiming::blog02();
+	yiming::test06();
 
 	return 0;
 } 
