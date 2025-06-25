@@ -93,6 +93,7 @@ namespace yiming
 
         // 从指定位置 pos 开始截取长度为 len 的子字符串，如果 len 为 npos 则截取从 pos 到字符串末尾的所有字符，并返回一个新的 string 对象
         string substr(size_t pos, size_t len = npos)const;
+        string operator=(const string& s);
 
         // 重载 < 运算符，用于比较两个 string 对象的大小，如果当前对象小于另一个对象则返回 true，否则返回 false
         bool operator<(const string& s)const;
